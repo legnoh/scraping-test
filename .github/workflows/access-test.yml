@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - uses: nanasess/setup-chromedriver@v1.0.5
     - uses: actions/setup-python@v2
       with:
         python-version: '3.x'
@@ -17,8 +18,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv install
-    - name: Prepare WebDriver
-      uses: nanasess/setup-chromedriver@v1.0.5
     - name: Start XVFB
       run: Xvfb :99 &
     - name: Run scraping
