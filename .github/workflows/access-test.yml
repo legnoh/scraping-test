@@ -17,11 +17,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv install
-    - name: Prepare Selenium
+    - name: Prepare WebDriver
       uses: nanasess/setup-chromedriver@v1.0.5
     - name: Start XVFB
       run: Xvfb :99 &
-    - name: Run tests
+    - name: Run scraping
       run: pipenv run test
       env:
         DISPLAY: :99
